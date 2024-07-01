@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Dreaming Spanish Hours Tracker",
+  "version": "1.0",
+  "description": "Add YouTube watch time to Dreaming Spanish hours.",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/feed/history"],
+      "js": ["content.js"]
+    }
+  ],
+  "host_permissions": [
+    "https://www.dreamingspanish.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
