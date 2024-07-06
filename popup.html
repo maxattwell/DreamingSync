@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dreaming Spanish Hours Tracker</title>
+    <title>Dreaming Sync</title>
     <style>
         body { font-family: Arial, sans-serif; padding: 10px; }
         button { padding: 5px 10px; margin-top: 10px; }
     </style>
 </head>
 <body>
-    <h1>Dreaming Spanish</h1>
-    <p>Select a video from your YouTube history to add hours watched.</p>
-    <button id="open-history">Open YouTube History</button>
-    <script>
-        document.getElementById('open-history').addEventListener('click', () => {
-            console.log('boo')
-            chrome.tabs.create({ url: 'https://www.youtube.com/feed/history' });
-        });
-    </script>
+    <h1>Dreaming Sync</h1>
+    <p>Select a video from your history to add hours watched.</p>
+    <button id="load-info">get info</button>
+    <div id="button-container"></div>
+    <div id="data"></div>
+    <script src="popup.js"></script>
 </body>
 </html>

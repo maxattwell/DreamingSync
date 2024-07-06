@@ -3,6 +3,7 @@ window.addEventListener('load', () => {
 
     videos.forEach(video => {
         const button = createAddButton(video);
+    console.log(video)
         video.appendChild(button);
     });
 });
@@ -16,6 +17,7 @@ function createAddButton(video) {
 }
 
 function addToDreamingSpanish(video) {
+    console.log('DreamingSync')
     const progressDiv = video.querySelector('#progress');
     const widthPercentage = progressDiv.style.width;
     const videoTitle = video.querySelector('#video-title').innerText;

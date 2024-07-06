@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Dreaming Spanish Hours Tracker",
+  "name": "DreamingSync",
   "version": "1.0",
-  "description": "Add YouTube watch time to Dreaming Spanish hours.",
+  "description": "Add watch time to Dreaming Spanish hours.",
   "permissions": [
     "tabs",
     "activeTab",
@@ -16,6 +16,10 @@
     {
       "matches": ["https://www.youtube.com/feed/history"],
       "js": ["content.js"]
+    },
+    {
+      "matches": ["https://www.rtve.es/play/videos/*"],
+      "js": ["rtve.js"]
     }
   ],
   "host_permissions": [
