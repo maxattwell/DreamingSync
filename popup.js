@@ -8,34 +8,86 @@ chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
       document.getElementById('site-name').innerText = response.site
       document.getElementById('page').innerText = response.page
 
-      console.log('response.videos')
-      console.log(response.videos)
-      if (response.videos) {
-        for (const video of response.videos) {
-          // Select the div where you want to add the button
-          const videoContainer = document.getElementById('video-container');
-
-          const newVideo = document.createElement('div')
-
-          const newVideoTitle = document.createElement('p')
-          newVideoTitle.innerText = video.title
-
-          // Create a new button elements
-          const lengthButton = document.createElement('button');
-          const watchedButton = document.createElement('button');
-          lengthButton.innerText = '+ ' +  video.length;
-          watchedButton.innerText = '+ ' + video.watched;
-          // newButton.addEventListener('click', () => {
-          //   console.log('New button clicked');
-          // });
-
-          // Add the new button to the selected div
-          newVideo.appendChild(newVideoTitle)
-          newVideo.appendChild(lengthButton);
-          newVideo.appendChild(watchedButton);
-          videoContainer.appendChild(newVideo)
+      if (response.lengthSeconds && response.watchedSeconds) {
+        const mainVideo = {
+          title: response.page,
+          lengthSeconds: response.lengthSeconds,
+          watchedSeconds: response.watchedSeconds
         }
+        setVideoButtons(mainVideo)
       }
+
+      // if (response.videos) {
+      //   for (const video of response.videos) {
+      //     setVideoButtons(video)
+      //   }
+      // }
     }
   });
 });
+
+
+function setVideoButtons(video) {
+  const videoContainer = document.getElementById('video-container');
+
+  const newVideo = document.createElement('div')
+
+  const newVideoTitle = document.createElement('p')
+  newVideoTitle.innerText = video.title
+  newVideo.appendChild(newVideoTitle)
+
+  const watchedButton = document.createElement('button');
+  watchedButton.innerText = '+ ' + formatTime(video.watchedSeconds);
+  watchedButton.addEventListener('click', () => {
+    chrome.runtime.sendMessage({
+      action: 'addToDreamingSpanish',
+      title: `${video.title} -- Logged by DreamingSync`,
+      duration: Math.floor(video.watchedSeconds)
+    });
+  });
+  newVideo.appendChild(watchedButton);
+
+  const lengthButton = document.createElement('button');
+  lengthButton.innerText = '+ ' + formatTime(video.lengthSeconds);
+  lengthButton.addEventListener('click', () => {
+    chrome.runtime.sendMessage({
+      action: 'addToDreamingSpanish',
+      title: `${video.title} -- Logged by DreamingSync`,
+      duration: Math.floor(video.lengthSeconds)
+    });
+  });
+  newVideo.appendChild(lengthButton);
+
+  videoContainer.appendChild(newVideo)
+}
+
+// document.getElementById('get-data').addEventListener('click', () => {
+//   chrome.tabs.sendMessage(tabs[0].id, { action: 'getData' }, (response) => {
+//     if (chrome.runtime.lastError) {
+//       console.error(chrome.runtime.lastError.message);
+//       document.getElementById('data').innerText = 'Error getting videos.';
+//     } else {
+//       const dataDiv = document.getElementById('data')
+//       document.getElementById('site-name').innerText = response.site
+//       document.getElementById('page').innerText = response.page
+
+//       if (response.lengthSeconds && response.watchedSeconds) {
+//         const mainVideo = {
+//           title: response.page,
+//           lengthSeconds: response.lengthSeconds,
+//           watchedSeconds: response.watchedSeconds
+//         }
+//         console.log({ mainVideo })
+//         setVideoButtons(mainVideo)
+//       }
+
+//       console.log('response')
+//       console.log(response)
+//       if (response.videos) {
+//         for (const video of response.videos) {
+//           setVideoButtons(response.videos)
+//         }
+//       }
+//     }
+//   });
+// })

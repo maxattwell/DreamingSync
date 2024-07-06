@@ -15,11 +15,15 @@
   "content_scripts": [
     {
       "matches": ["https://www.youtube.com/feed/history"],
-      "js": ["content.js"]
+      "js": ["youtube_history.js"]
+    },
+    {
+      "matches": ["https://www.youtube.com/watch*"],
+      "js": ["utils.js", "youtube_watch.js"]
     },
     {
       "matches": ["https://www.rtve.es/play/videos/*"],
-      "js": ["rtve.js"]
+      "js": ["utils.js", "rtve_play_videos.js"]
     }
   ],
   "host_permissions": [
