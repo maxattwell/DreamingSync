@@ -23,8 +23,8 @@ chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
           // Create a new button elements
           const lengthButton = document.createElement('button');
           const watchedButton = document.createElement('button');
-          lengthButton.innerText = video.length;
-          watchedButton.innerText = video.watched;
+          lengthButton.innerText = '+ ' +  video.length;
+          watchedButton.innerText = '+ ' + video.watched;
           // newButton.addEventListener('click', () => {
           //   console.log('New button clicked');
           // });
