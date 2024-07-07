@@ -7,11 +7,14 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
           target: { tabId: tabs[0].id },
           func: addHours,
           args: [message.title, message.duration]
-        }).then(() => console.log("Injected function."));
+        })
+          .then(() => sendResponse({ success: true })).
+          catch(() => sendResponse({ success: false }))
       } else {
-        console.warn('Dreaming Spanish progress page is not open.');
+        sendResponse({ success: false })
       }
     });
+    return true;
   }
 });
 

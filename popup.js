@@ -43,6 +43,9 @@ function setVideoButtons(video) {
       action: 'addToDreamingSpanish',
       title: `${video.title} -- Logged by DreamingSync`,
       duration: Math.floor(video.watchedSeconds)
+    }, function(response) {
+      if (response.success) watchedButton.innerText = 'Added'
+      else watchedButton.innerText = 'Error'
     });
   });
   newVideo.appendChild(watchedButton);
@@ -54,6 +57,9 @@ function setVideoButtons(video) {
       action: 'addToDreamingSpanish',
       title: `${video.title} -- Logged by DreamingSync`,
       duration: Math.floor(video.lengthSeconds)
+    }, function(response) {
+      if (response.success) lengthButton.innerText = 'Added'
+      else lengthButton.innerText = 'Error'
     });
   });
   newVideo.appendChild(lengthButton);
