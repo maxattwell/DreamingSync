@@ -24,6 +24,10 @@
     {
       "matches": ["https://www.rtve.es/play/videos/*"],
       "js": ["utils.js", "rtve_play_videos.js"]
+    },
+    {
+      "matches": ["https://www.twitch.tv/videos/*"],
+      "js": ["utils.js", "twitch_videos.js"]
     }
   ],
   "host_permissions": [
