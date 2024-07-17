@@ -28,15 +28,26 @@ h2 {
     font-size: 14px;
 }
 
-button {
-    padding: 5px 10px;
+h4 {
+    background-color: orange;
+    color: white;
+    padding: 5px;
+    border-radius: 20px;
+    width: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 #video-container > div {
     border-bottom: 1px solid #ddd;
     padding: 10px 0;
+    display: block;
+}
+
+#video-container > div > div {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     gap: 5px;
 }
 
@@ -47,4 +58,5 @@ button {
     border-radius: 5px;
     font-weight: bold;
     padding: 5px 10px;
+    font-size: 18px;
 }
