@@ -15,7 +15,7 @@
   "content_scripts": [
     {
       "matches": ["https://www.youtube.com/feed/history"],
-      "js": ["content-scripts/youtube_history.js"]
+      "js": ["shared/utils.js", "content-scripts/youtube_history.js"]
     },
     {
       "matches": ["https://www.youtube.com/watch*"],
@@ -23,15 +23,11 @@
     },
     {
       "matches": ["https://www.rtve.es/play/videos/*"],
-<<<<<<< HEAD
-      "js": ["utils.js", "rtve_play_videos.js"]
+      "js": ["shared/utils.js", "content-scripts/rtve_play_videos.js"]
     },
     {
       "matches": ["https://www.twitch.tv/videos/*"],
-      "js": ["utils.js", "twitch_videos.js"]
-=======
-      "js": ["shared/utils.js", "content-scripts/rtve_play_videos.js"]
->>>>>>> feat-rtve
+      "js": ["shared/utils.js", "content-scripts/twitch_videos.js"]
     }
   ],
   "host_permissions": [
