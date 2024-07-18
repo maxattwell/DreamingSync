@@ -51,7 +51,17 @@ h4 {
     gap: 5px;
 }
 
-#video-container button {
+#timer {
+    display: flex;
+    justify-content: space-around;
+    gap: 5px;
+}
+
+#timer button {
+    font-size: 12px
+}
+
+button {
     background-color: orange;
     color: white;
     border: none;

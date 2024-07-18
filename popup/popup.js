@@ -69,4 +69,46 @@ function createAddTimeButton(videoTitle, secondsToAdd) {
 
 GetPageData()
 
-document.getElementById('get-data').addEventListener('click', GetPageData)
+// document.getElementById('get-data').addEventListener('click', GetPageData)
+
+// Load timer
+document.addEventListener('DOMContentLoaded', function () {
+  const startButton = document.getElementById('startButton');
+  const resetButton = document.getElementById('resetButton');
+  const timerDisplay = document.getElementById('timerDisplay');
+
+  let startTime;
+  let timerInterval;
+
+  // Load stored start time
+  chrome.storage.local.get(['startTime'], function (result) {
+    if (result.startTime) {
+      startTime = result.startTime;
+      startTimer();
+    }
+  });
+
+  startButton.addEventListener('click', function () {
+    if (!startTime) {
+      startTime = Date.now();
+      chrome.storage.local.set({ startTime: startTime }, function () {
+        startTimer();
+      });
+    }
+  });
+
+  resetButton.addEventListener('click', function () {
+    clearInterval(timerInterval);
+    startTime = null;
+    timerDisplay.textContent = "0:00:00";
+    chrome.storage.local.remove('startTime');
+  });
+
+  function startTimer() {
+    timerInterval = setInterval(function () {
+      const elapsedTime = Date.now() - startTime;
+      const seconds = Math.floor((elapsedTime / 1000));
+      timerDisplay.textContent = ' + ' + formatTime(seconds)
+    }, 1000);
+  }
+});

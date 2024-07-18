@@ -15,20 +15,20 @@
   },
   "content_scripts": [
     {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["shared/utils.js", "content-scripts/youtube.js"]
+    },
+    {
       "matches": ["https://www.youtube.com/feed/history"],
       "js": ["shared/utils.js", "content-scripts/youtube_history.js"]
     },
     {
-      "matches": ["https://www.youtube.com/watch*"],
-      "js": ["shared/utils.js", "content-scripts/youtube_watch.js"]
+      "matches": ["https://www.rtve.es/*"],
+      "js": ["shared/utils.js", "content-scripts/rtve.js"]
     },
     {
-      "matches": ["https://www.rtve.es/play/videos/*"],
-      "js": ["shared/utils.js", "content-scripts/rtve_play_videos.js"]
-    },
-    {
-      "matches": ["https://www.twitch.tv/videos/*"],
-      "js": ["shared/utils.js", "content-scripts/twitch_videos.js"]
+      "matches": ["https://www.twitch.tv/*"],
+      "js": ["shared/utils.js", "content-scripts/twitch.js"]
     }
   ],
   "host_permissions": [
