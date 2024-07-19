@@ -36,7 +36,7 @@ function addHours(title, duration) {
   }
 
   const body = {
-    date: new Date().toISOString().split('T')[0],
+    date: new Date().toLocaleString('en-CA').split(',')[0],
     description: title,
     id: generateUniqueId(),
     timeSeconds: duration,
