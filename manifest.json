@@ -29,6 +29,10 @@
     {
       "matches": ["https://www.twitch.tv/*"],
       "js": ["shared/utils.js", "content-scripts/twitch.js"]
+    },
+    {
+      "matches": ["https://www.amazon.com/*"],
+      "js": ["shared/utils.js", "content-scripts/amazon.js"]
     }
   ],
   "host_permissions": [
