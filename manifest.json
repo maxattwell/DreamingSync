@@ -4,35 +4,57 @@
   "version": "1.0",
   "description": "Add watch time to Dreaming Spanish hours.",
   "permissions": [
-    "tabs",
     "activeTab",
     "storage",
     "scripting",
     "history"
   ],
-  "background": {
-    "service_worker": "background.js"
-  },
   "content_scripts": [
     {
-      "matches": ["https://www.youtube.com/*"],
-      "js": ["shared/utils.js", "content-scripts/youtube.js"]
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "shared/utils.js",
+        "content-scripts/youtube.js"
+      ]
     },
     {
-      "matches": ["https://www.youtube.com/feed/history"],
-      "js": ["shared/utils.js", "content-scripts/youtube_history.js"]
+      "matches": [
+        "https://www.youtube.com/feed/history"
+      ],
+      "js": [
+        "shared/utils.js",
+        "content-scripts/youtube_history.js"
+      ]
     },
     {
-      "matches": ["https://www.rtve.es/*"],
-      "js": ["shared/utils.js", "content-scripts/rtve.js"]
+      "matches": [
+        "https://www.rtve.es/*"
+      ],
+      "js": [
+        "shared/utils.js",
+        "content-scripts/rtve.js"
+      ]
     },
     {
-      "matches": ["https://www.twitch.tv/*"],
-      "js": ["shared/utils.js", "content-scripts/twitch.js"]
+      "matches": [
+        "https://www.twitch.tv/*"
+      ],
+      "js": [
+        "shared/utils.js",
+        "content-scripts/twitch.js"
+      ]
     },
     {
-      "matches": ["https://www.amazon.com/*", "https://www.primevideo.com/*"],
-      "js": ["shared/utils.js", "content-scripts/amazon.js"]
+      "matches": [
+        "https://www.amazon.com/*",
+        "https://www.primevideo.com/*"
+      ],
+      "js": [
+        "shared/utils.js",
+        "content-scripts/amazon.js"
+      ]
     }
   ],
   "host_permissions": [

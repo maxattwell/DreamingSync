@@ -6,11 +6,37 @@
 </head>
 <body>
     <h2>Dreaming Sync</h2>
-    <div id="site-name"></div>
-    <div id="video-container"></div>
-    <div id="data"></div>
+
+    <div id="main"></div>
+
+    <button
+        id="pre-login-btn"
+        type="submit"
+        style="display: none;"
+    >
+        Login
+    </button>
+
+    <div id="login-container" style="display: none;">
+        <input
+            id="login-input"
+            type="text"
+            placeholder="email"
+        />
+        <button id="login-btn" type="submit">Login</button>
+    </div>
+
+    <div id="verify-container" style="display: none;">
+        <input
+            id="verify-input"
+            type="number"
+            placeholder="code"
+        />
+        <button id="verify-btn" type="submit">Verify</button>
+    </div>
 
     <script src="../shared/utils.js"></script>
-    <script src="popup.js"></script>
+    <script type="module" src="video.js"></script>
+    <script type="module" src="popup.js"></script>
 </body>
 </html>

@@ -1,4 +1,3 @@
-console.log('\n\n\n\n\n\n\n\n\n\nloading dreaming sync\n\n\n\n\n\n\n\n\n\n\n\n\n')
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.action === 'getData') {
 

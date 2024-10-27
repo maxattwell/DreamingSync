@@ -14,29 +14,10 @@ h2 {
     text-align: center;
 }
 
-#site-name, #page {
+h3 {
+    font-weight: bold;
     text-align: center;
     color: black;
-    margin-top: 10px;
-}
-
-#site-name {
-    font-weight: bold;
-}
-
-#page {
-    font-size: 14px;
-}
-
-h4 {
-    background-color: orange;
-    color: white;
-    padding: 5px;
-    border-radius: 20px;
-    width: 80px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
 }
 
 #video-container > div {
@@ -49,16 +30,6 @@ h4 {
     display: flex;
     justify-content: space-around;
     gap: 5px;
-}
-
-#timer {
-    display: flex;
-    justify-content: space-around;
-    gap: 5px;
-}
-
-#timer button {
-    font-size: 12px
 }
 
 button {
