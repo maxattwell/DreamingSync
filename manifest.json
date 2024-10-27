@@ -31,7 +31,7 @@
       "js": ["shared/utils.js", "content-scripts/twitch.js"]
     },
     {
-      "matches": ["https://www.amazon.com/*"],
+      "matches": ["https://www.amazon.com/*", "https://www.primevideo.com/*"],
       "js": ["shared/utils.js", "content-scripts/amazon.js"]
     }
   ],
